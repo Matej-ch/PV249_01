@@ -32,15 +32,15 @@ def get_correct_year(current, month, day)
   year.to_s
 end
 
-def check_difference(date_difference)
-  puts 'Congratulations' if date_difference == 0
-  if date_difference < 0
-    year_new = get_correct_year(current_year_date[0], month_day[0], month_day[1])
-    date_difference = difference(current_year_date[1], "#{year_new}.#{month_day[0]}.#{month_day[0]}.")
-    puts "You have to wait #{date_difference} more days"
-  elsif date_difference > 0
-    puts "You have to wait #{date_difference} more days"
-  end
+def finish
+  year_new = get_correct_year(current_year_date[0], month_day[0], month_day[1])
+  difference(current_year_date[1], "#{year_new}.#{month_day[0]}.#{month_day[0]}.")
+end
+
+def check_difference(date_diff)
+  puts 'Congratulations' if date_diff == 0
+  puts "You have to wait #{date_diff} more days" if date_diff > 0
+  puts "You have to wait #{finish} more days" if date_diff < 0
 end
 
 def month_day
